@@ -11,22 +11,24 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <a href="./highscores.html" class="navbar-brand">High Scores</a>
-        <div class="form-inline" class="form-control mr-sm-2" id="timer">Timer: <span></span></div>
+        <div class="form-inline" class="form-control mr-sm-2" id="timer">Time:<span id="timeText"></span></div>
     </nav>
 
-    <main class="container">
+    <main class="container" id="mainWrap">
+        <div id="quizBox">
         <!-- welcome message -->
         <h2>Javascript Code Quiz</h2>
         <p>Your alloted time is displayed in the upper right hand corner of the screen.
         Choose the correct answers to the questions as they appear. Wrong answers will subtract time from your counter.
         Prepare to have your brain fried!
         </p>
+
+        <ul id="multiChoiceUl"></ul>
        <!-- start button -->
 
        <button type="button" class="btn btn-danger" id="startButton">START</button>
+    </div>
 
-        <!-- question layout -->
-        <!-- block formation for answers -->
 
         <!-- question results -->
     </main>
