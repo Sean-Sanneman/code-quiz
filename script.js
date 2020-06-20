@@ -115,6 +115,44 @@ startButton.addEventListener("click", function() {
             })
         }
 
+        function compare(event) {
+            var element = event.target;
+
+            if (element.matches("li")) {
+
+
+                var createDiv = document.createElement("div");
+                createDiv.setAttribute("id", "createDiv");
+                //correct
+                if (element.textContent === questions[questionIndex].correct) {
+                    score++;
+                    createDiv.textContent = "GENIOUS!!!!!";
+                } else {
+                    timeSeconds = timeSeconds - subtract;
+                    createDiv.textContent = "Idiot!!!"
+                }
+            }
+            //what question is the user on?
+            questionIndex++;
+
+            if (questionIndex >= questions.length) {
+                allDone();
+                createDiv.textContent = "Quiz Complete!" + "" + "You Answered" + score + "/" + questions.length + "Correct!";
+            } else { 
+                render(questionIndex);
+            }
+            quizBox.appendChild(createDiv);
+            }
+            function allDone() {
+                quizBox.innerHTML = "";
+                timeSeconds.innerHTML = "";
+
+
+            }
+        
+
+
+
 
 
     
