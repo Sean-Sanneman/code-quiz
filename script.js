@@ -60,7 +60,7 @@ var questions = [
     // index 9
     {
         question: 'What does "this" refer to in JavaScript?',
-        answers: ["the previous object", "an agreement with a 'true' boolean", "the current object", "the data contained within a variable"],
+        answers: ["the previous object", "a 'true' boolean", "the current object", "the data contained within a variable"],
         correct: "the current object",
     },
 ];
@@ -74,7 +74,7 @@ var startButton = document.querySelector("#startButton");
 var quizBox = document.querySelector("#quizBox");
 var mainWrap = document.querySelector("#mainWrap");
 
-var timeSeconds = 100;
+var timeSeconds = 90;
 var holdInterval = 0;
 var subtract = 10;
 var ulCreate = document.createElement("ul");
@@ -107,7 +107,7 @@ startButton.addEventListener("click", function() {
             }
 
             quizAnswers.forEach(function (newItem) {
-                var listItem = document.createElement("li");
+                var listItem = document.createElement("button");
                 listItem.textContent = newItem;
                 quizBox.appendChild(ulCreate);
                 ulCreate.appendChild(listItem);
@@ -118,7 +118,7 @@ startButton.addEventListener("click", function() {
         function compare(event) {
             var element = event.target;
 
-            if (element.matches("li")) {
+            if (element.matches("button")) {
 
 
                 var createDiv = document.createElement("div");
@@ -129,7 +129,7 @@ startButton.addEventListener("click", function() {
                     createDiv.textContent = "GENIOUS!!!!!";
                 } else {
                     timeSeconds = timeSeconds - subtract;
-                    createDiv.textContent = "WRONG!!!"
+                    createDiv.textContent = "IDIOT!!!"
                 }
             }
             //what question is the user on?
@@ -137,7 +137,7 @@ startButton.addEventListener("click", function() {
 
             if (questionIndex >= questions.length) {
                 allDone();
-                createDiv.textContent = "Quiz Complete!" + "" + "You Answered" + score + "/" + questions.length + "Correct!";
+                createDiv.textContent = "Quiz Complete!  " + "" + "You Answered-" + score + "/" + questions.length + "Correct!";
             } else { 
                 render(questionIndex);
             }
