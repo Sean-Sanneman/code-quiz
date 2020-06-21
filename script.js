@@ -147,6 +147,71 @@ startButton.addEventListener("click", function() {
                 quizBox.innerHTML = "";
                 timeSeconds.innerHTML = "";
 
+                var heading = document.createElement("h1");
+                heading.setAttribute("id", "heading");
+                heading.textContent = "Done!"
+
+                quizBox.appendChild(heading);
+
+                var para = document.createElement("p");
+                para.setAttribute("id", "para");
+
+                quizBox.appendChild(para);
+
+                if (timeSeconds >= 0) {
+                    var timeLeft = timeSeconds;
+                    var para2 = document.createElement("p");
+                    clearInterval(holdInterval);
+                    para.textContent = "Your Score Is: " + timeLeft;
+
+                    quizBox.appendChild(para2);
+                }
+
+                var recStats = document.createElement("input");
+                recStats.setAttribute("type", "text");
+                recStats.setAttribute("id", "initials");
+                recStats.textContent = "";
+
+                quizBox.appendChild(recStats);
+
+                //submit user info
+                var userInfo = document.createElement("button");
+                userInfo.setAttribute("type", "Info");
+                userInfo.setAttribute("id", "Info");
+                userInfo.textContent = "Info";
+
+                quizBox.appendChild(userInfo);
+
+                //capture user info
+                userInfo.addEventListener("click", function() {
+                    var initials = userInfo.value;
+                    if (initials === null) {
+                        console.log("No value entered!");
+                    
+                    } else {
+                        var score = {
+                            initials: initials,
+                            score: timeLeft
+                        }
+                        console.log(score);
+                        var highScores = localStorage.getItem("highScores");
+                        if (highScores === null) {
+                            highScores = [];
+                        } else {
+                            highScores = JSON.parse(highScores);
+                        }
+                        highScores.push(score);
+                        var newUser = JSON.stringify(highScores);
+                        localStorage.setItem("highScores", "newUser");
+
+                        //store on highscores page
+                        window.location.replace("./highscores.html");
+                    }
+
+                });
+
+
+
 
             }
 
