@@ -24,7 +24,7 @@ var questions = [
     // index 3
     {
         question: 'What is Vanilla JavaScript?',
-        answers: ["a form of JavaScript specifically compiled for the Starbucks Corporation", "plain JavaScript without any additionl libraries", "JavaScript simplified for basic consumer usage", "JavaScript designed to work with grayscale CSS formats"],
+        answers: ["a form of JavaScript compiled for the Starbucks Corporation", "plain JavaScript without any additionl libraries", "JavaScript simplified for basic consumer usage", "JavaScript designed to work with grayscale CSS formats"],
         correct: "plain JavaScript without any additionl libraries",
     },
     // index 4
@@ -129,7 +129,7 @@ startButton.addEventListener("click", function() {
                     createDiv.textContent = "GENIOUS!!!!!";
                 } else {
                     timeSeconds = timeSeconds - subtract;
-                    createDiv.textContent = "Idiot!!!"
+                    createDiv.textContent = "WRONG!!!"
                 }
             }
             //what question is the user on?
@@ -149,6 +149,9 @@ startButton.addEventListener("click", function() {
 
 
             }
+
+            
+
         
 
 
