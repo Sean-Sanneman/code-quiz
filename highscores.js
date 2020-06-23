@@ -7,7 +7,7 @@ clear.addEventListener("click", function() {
     location.reload();
 });
 
-var score = localStorage.getItem(score.value);
+var score = localStorage.getItem(score);
 score = JSON.parse(score);
 
 //highScores = JSON.parse(score);
@@ -15,7 +15,7 @@ if (Score.value !== null) {
 
 for (var i = 0; i < score; i++) {    
 var tagScore = document.createElement("li");
-tagScore.textContent = score.value;
+tagScore.textContent = score;
 #scoreList.appendChild(tagScore);
 }
 }
