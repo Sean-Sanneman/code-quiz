@@ -1,4 +1,3 @@
-// add listening event for start button
 
 // list of questions and answers object arrays
 
@@ -66,7 +65,7 @@ var questions = [
 ];
 
 var score = 0;
-var questionIndex = 0
+var questionIndex = 0;
 
 //set timer - lookup set interval and close interval
 var timer = document.querySelector("#timer");
@@ -78,6 +77,7 @@ var timeSeconds = 90;
 var holdInterval = 0;
 var subtract = 10;
 var ulCreate = document.createElement("ul");
+var scoreArray = []
 
 //loop through questions while documenting to the DOM using ids, use query selector, set up local storage
 startButton.addEventListener("click", function() {
@@ -137,7 +137,7 @@ startButton.addEventListener("click", function() {
 
             if (questionIndex >= questions.length) {
                 allDone();
-                createDiv.textContent = "Quiz Complete!  " + "" + "You Answered-" + score + "/" + questions.length + "Correct!";
+                createDiv.textContent = "Quiz Complete!  " + "" + "You Answered:  " + score + "/" + questions.length + " Correct!";
             } else { 
                 render(questionIndex);
             }
@@ -176,9 +176,9 @@ startButton.addEventListener("click", function() {
 
                 //submit user info
                 var userInfo = document.createElement("button");
-                userInfo.setAttribute("type", "Info");
-                userInfo.setAttribute("id", "Info");
-                userInfo.textContent = "Info";
+                userInfo.setAttribute("type", "Submit");
+                userInfo.setAttribute("id", "Submit");
+                userInfo.textContent = "Submit";
 
                 quizBox.appendChild(userInfo);
 
@@ -191,18 +191,26 @@ startButton.addEventListener("click", function() {
                     } else {
                         var score = {
                             initials: initials,
-                            score: timeLeft
-                        }
+                            score: timeLeft, 
+                        };
                         console.log(score);
-                        var highScores = localStorage.getItem("highScores");
+
+                        scoreArray.push(score);
+                        console.log(scoreArray)
+
+
+
+                        localStorage.setItem("score", JSON.stringify(score));
+
+                        var highScores = localStorage.getItem(score);
                         if (highScores === null) {
                             highScores = [];
                         } else {
                             highScores = JSON.parse(highScores);
                         }
-                        highScores.push(score);
-                        var newUser = JSON.stringify(highScores);
-                        localStorage.setItem("highScores", "newUser");
+                        
+                        
+                        
 
                         //store on highscores page
                         window.location.replace("./highscores.html");
@@ -211,9 +219,14 @@ startButton.addEventListener("click", function() {
                 });
 
 
-
-
             }
+
+            //continue on highscores page
+
+           
+
+
+
 
             
 

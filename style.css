@@ -29,3 +29,22 @@ button {
     margin: Auto 5px 5px 5px;
     border-color: black;
 }
+
+#returnButton {
+    margin: Auto 5px 5px 5px;
+    border-color: black;
+}
+
+#returnButton a {
+    color: inherit;
+}
+
+#scoreBox {
+    font-weight: bolder;
+    border-style: ridge;
+    border-color: black;
+    border-width: 2px;
+    margin: 15% auto;
+    background-color: rgb(241, 237, 237);
+    text-align: center;
+}
