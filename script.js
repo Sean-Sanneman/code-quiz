@@ -179,12 +179,15 @@ startButton.addEventListener("click", function() {
                 userInfo.setAttribute("type", "Submit");
                 userInfo.setAttribute("id", "Submit");
                 userInfo.textContent = "Submit";
-
+                var input = document.querySelector("#initials");
                 quizBox.appendChild(userInfo);
 
                 //capture user info
                 userInfo.addEventListener("click", function() {
-                    var initials = userInfo.value;
+                    var scoreArray = JSON.parse(localStorage.getItem('score')) || [];
+                    console.log(scoreArray);
+                    var initials = input.value;
+                    
                     if (initials === null) {
                         console.log("No value entered!");
                     
@@ -200,7 +203,7 @@ startButton.addEventListener("click", function() {
 
 
 
-                        localStorage.setItem("score", JSON.stringify(score));
+                        localStorage.setItem("score", JSON.stringify(scoreArray));
 
                         var highScores = localStorage.getItem(score);
                         if (highScores === null) {

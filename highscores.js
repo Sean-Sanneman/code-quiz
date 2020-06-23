@@ -6,17 +6,17 @@ clear.addEventListener("click", function() {
     localStorage.clear();
     location.reload();
 });
- 
-var score = localStorage.getItem("score");
-Score = JSON.parse(score)
+
+var score = localStorage.getItem(score.value);
+score = JSON.parse(score);
 
 //highScores = JSON.parse(score);
-if (Score !== null) {
+if (Score.value !== null) {
 
-for (var i = 0; i < score.length; i++) {    
+for (var i = 0; i < score; i++) {    
 var tagScore = document.createElement("li");
-tagScore.textContent = score[i].initials+ " " + score[i].score;
-scoreList.appendChild(tagScore);
+tagScore.textContent = score.value;
+#scoreList.appendChild(tagScore);
 }
 }
 
